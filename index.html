@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q4 Drill 2</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<form>
+    <h1>Heat Index Checker</h1>
+
+    <input type="text" class="form-control" id="Temp" placeholder="Input Degree Value">
+    <input type="text" class="form-control" id="Hum" placeholder="Input Percentage Value">
+    <button class="btn btn-info" onclick="Check()">Check</button>
+</form>
+
+    <script>
+
+        function Check(){
+            var Temp = parseFloat(document.getElementById("Temp").value);
+            var Hum = parseFloat(document.getElementById("Hum").value);
+            var HeatIndex = Temp + (0.33 * Hum) - 4;
+
+            message = "";
+            
+            switch(true){
+                case ((HeatIndex<=27) && (HeatIndex>0)):
+                    message = "Status: Cool";
+                    break;
+                case ((HeatIndex<=32) && (HeatIndex>=28)):
+                    message = "Status: Warm";
+                    break;
+                case ((HeatIndex<=37) && (HeatIndex>=33)):
+                    message = "Status: Hot";
+                    break;
+                case ((HeatIndex>=38) && (HeatIndex<=41)):
+                    message = "Status: Very Hot";
+                    break;
+                case (HeatIndex>=42):
+                    message = "Status: Danger";
+                case (isNaN(HeatIndex) || HeatIndex < 0):
+                    message = "Please input a valid number.";
+            }
+                alert("Heat Index: " + HeatIndex.toFixed(2) + "C°" + "\n" + message);
+        }
+    </script>
+
+</body>
+</html>
