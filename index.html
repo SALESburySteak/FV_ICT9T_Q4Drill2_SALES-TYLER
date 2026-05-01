@@ -50,7 +50,7 @@
     function Check(){
       var Temp = parseFloat(document.getElementById("Temp").value);
       var Hum = parseFloat(document.getElementById("Hum").value);
-      var HeatIndex = Temp + (0.33 * (0.01 * Hum)) - 4;  // I added percentage calculation so that its accurate//
+      var HeatIndex = Temp + (0.33 * Hum) - 4;  // I added percentage calculation so that its accurate//
       let message = "";
       
       switch(true){
